@@ -28,6 +28,7 @@ import (
 	"log"
 	"mime"
 	"net/http"
+	"crypto/tls"
 	"net/url"
 	"path/filepath"
 	"strings"
@@ -92,8 +93,12 @@ func NewProxy(transport http.RoundTripper, cache Cache) *Proxy {
 	proxy := &Proxy{
 		Cache: cache,
 	}
+	
+	tr := &http.Transport{
+	  TLSClientConfig: &tls.Config{InsecureSkipVerify : true},
+	}
 
-	client := new(http.Client)
+	client := &http.Client{Transport: tr}
 	client.Transport = &httpcache.Transport{
 		Transport: &TransformingTransport{
 			Transport:     transport,
