@@ -21,6 +21,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"crypto/tls"
 	"net/url"
 	"os"
 	"strconv"
@@ -59,6 +60,7 @@ func init() {
 }
 
 func main() {
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	flag.Parse()
 	if *remoteHosts == "" {
 		// backwards compatible with old naming of the flag

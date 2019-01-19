@@ -94,11 +94,9 @@ func NewProxy(transport http.RoundTripper, cache Cache) *Proxy {
 		Cache: cache,
 	}
 
-	tr := &http.Transport{
-	  TLSClientConfig: &tls.Config{InsecureSkipVerify : true},
-	}
+	//http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 
-	client := &http.Client{Transport: tr}
+	client := new(http.Client)
 	client.Transport = &httpcache.Transport{
 		Transport: &TransformingTransport{
 			Transport:     transport,
