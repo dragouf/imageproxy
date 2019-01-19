@@ -28,7 +28,6 @@ import (
 	"log"
 	"mime"
 	"net/http"
-	"crypto/tls"
 	"net/url"
 	"path/filepath"
 	"strings"
