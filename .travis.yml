@@ -8,7 +8,7 @@ matrix:
     - go: "1.11.x"
       script: go test -v -mod=vendor ./...
 
-go_import_path: willnorris.com/go/imageproxy
+go_import_path: github.com/dragouf/imageproxy
 
 env:
   - GO111MODULE=on

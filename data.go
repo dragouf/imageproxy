@@ -225,7 +225,7 @@ func (o Options) transform() bool {
 // sign the remote URL in the request.  The HMAC key used to verify signatures is
 // provided to the imageproxy server on startup.
 //
-// See https://github.com/willnorris/imageproxy/wiki/URL-signing
+// See https://github.com/dragouf/imageproxy/wiki/URL-signing
 // for examples of generating signatures.
 //
 // Examples

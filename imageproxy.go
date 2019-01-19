@@ -14,7 +14,7 @@
 
 // Package imageproxy provides an image proxy server.  For typical use of
 // creating and using a Proxy, see cmd/imageproxy/main.go.
-package imageproxy // import "willnorris.com/go/imageproxy"
+package imageproxy // import "github.com/dragouf/imageproxy"
 
 import (
 	"bufio"
@@ -93,7 +93,7 @@ func NewProxy(transport http.RoundTripper, cache Cache) *Proxy {
 	proxy := &Proxy{
 		Cache: cache,
 	}
-	
+
 	tr := &http.Transport{
 	  TLSClientConfig: &tls.Config{InsecureSkipVerify : true},
 	}
@@ -301,7 +301,7 @@ func validSignature(key []byte, r *Request) bool {
 // req, based on the response resp.  This is determined using the last modified
 // time and the entity tag of resp.
 func should304(req *http.Request, resp *http.Response) bool {
-	// TODO(willnorris): if-none-match header can be a comma separated list
+	// TODO(github.com/dragouf): if-none-match header can be a comma separated list
 	// of multiple tags to be matched, or the special value "*" which
 	// matches all etags
 	etag := resp.Header.Get("Etag")

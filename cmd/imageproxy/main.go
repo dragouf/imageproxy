@@ -55,7 +55,7 @@ var version = flag.Bool("version", false, "Deprecated: this flag does nothing")
 var contentTypes = flag.String("contentTypes", "image/*", "comma separated list of allowed content types")
 
 func init() {
-	flag.Var(&cache, "cache", "location to cache images (see https://github.com/willnorris/imageproxy#cache)")
+	flag.Var(&cache, "cache", "location to cache images (see https://github.com/dragouf/imageproxy#cache)")
 }
 
 func main() {
